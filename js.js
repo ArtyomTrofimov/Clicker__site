@@ -1,4 +1,4 @@
-var click_score = 100;
+var click_score = 100000000;
 var upgrade_mult = 1;
 var gnom_lvl = 0;
 
