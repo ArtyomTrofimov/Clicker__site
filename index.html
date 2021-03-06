@@ -19,10 +19,16 @@
 
     <section class="main">
         <div class="container">
-            <div class="box">
+            <form class="box">
+                <input class="score_block" value="0" id='score' name="score_block" readonly> <img src="" alt="">
+                <input type="button" value="Click" class="button" onclick="Click()">
+                <button type="button" class="button" id="upgrade1" value="10" onclick="upgrade_click()">10
+                    рублей</button>
+                <button type="button" value="0" id='gnom1' class="button" onclick="upgrade_gnom() ,auto()"> Buy
+                    Gnom <br> 100 рублей</button>
 
-
-            </div>
+                <input type="button" value="Clean" class="button" onclick="Clean()">
+            </form>
         </div>
     </section>
 </body>
