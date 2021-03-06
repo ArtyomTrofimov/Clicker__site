@@ -1,4 +1,4 @@
-var click_score = 100000000;
+var click_score = 1;
 var upgrade_mult = 1;
 var gnom_lvl = 0;
 
@@ -36,7 +36,6 @@ function auto() {
     if (gnom_lvl >= 1) {
         document.getElementById('score').value = eval(document.getElementById('score').value) + eval(document.getElementById('gnom1').value);
     }
-
 
 }
 
