@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: sans-serif;
+    font-style: normal;
+}
+
+.container{
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 0 113px;
+}
+
+h1{
+    font-size: 60px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.box{
+    margin-top: 20px;
+    border: 1px solid #070707;
+    height: 750px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score_block{
+    text-align: left;
+    font-size: 20px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    background-image: url(img/coin.png);
+    background-position: 155px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    max-width: 200px;
+}
+
+.button{
+    height: 50px;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.coin_img{
+    background-image: url(img/coin.png);
+    background-position: right bottom;
+    background-size: 20%;
+    background-repeat: no-repeat;
+}
