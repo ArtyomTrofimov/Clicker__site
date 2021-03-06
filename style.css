@@ -47,6 +47,23 @@ h1{
     height: 50px;
     width: 150px;
     margin-bottom: 20px;
+    outline: none;
+}
+
+.button:hover {
+    background-color: rgb(194, 194, 194);
+}
+
+.button_circle {
+    font-size: 20px;
+    border-radius: 50%;
+    padding: 60px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.button_circle:hover {
+    background-color: rgb(194, 194, 194);
 }
 
 .coin_img{
