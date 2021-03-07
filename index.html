@@ -12,26 +12,34 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="container">
-            <h1>Кликер</h1>
-        </div>
-    </header>
+    <div class="container">
+        <div class="layout">
+            <header class="header">
+                <h1>Кликер</h1>
+            </header>
+            <section class="main">
+                <form class="box">
+                    <input class="score_block" value="0" id='score' name="score_block" readonly> <img src="" alt="">
+                    <input type="button" value="Click" class="button_circle" onclick="Click()">
+                </form>
+            </section>
+            <div class="upgrades">
+                <h3>Меню улучшений</h3>
+                <div class="upgrades_menu">
+                    <button type="button" class="button coin_img" id="upgrade1" value="10" onclick="upgrade_click()">10
+                        рублей</button>
+                    <button type="button" value="0" id='gnom1' class="button coin_img" onclick="upgrade_gnom() ,auto()">
+                        Buy
+                        Gnom <br> 100</button>
+                    <input type="button" value="Clean" class="button" onclick="Clean()">
+                </div>
 
-    <section class="main">
-        <div class="container">
-            <form class="box">
-                <input class="score_block" value="0" id='score' name="score_block" readonly> <img src="" alt="">
-                <input type="button" value="Click" class="button_circle" onclick="Click()">
-                <button type="button" class="button coin_img" id="upgrade1" value="10" onclick="upgrade_click()">10
-                    рублей</button>
-                <button type="button" value="0" id='gnom1' class="button coin_img" onclick="upgrade_gnom() ,auto()"> Buy
-                    Gnom <br> 100</button>
-
-                <input type="button" value="Clean" class="button" onclick="Clean()">
-            </form>
+            </div>
+            <footer class="footer">
+                2021 &copy; Artyom Trofimov & Mikhail Parfenov
+            </footer>
         </div>
-    </section>
+    </div>
 </body>
 
 </html>
