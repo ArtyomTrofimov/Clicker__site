@@ -41,4 +41,3 @@ function auto() {
 
 setInterval(auto, 1000);
 
-
