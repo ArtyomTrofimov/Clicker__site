@@ -38,21 +38,17 @@
                             <li class="tabs__item" data-id="tabs-2">Улучшения</li>
                         </ul>
                         <div class="tabs__text select" id="tabs-1">
-                            <p>
-                                Найми себе нового гнома, пусть пашет!
-                            </p>
-                            <button type="button" value="0" id='gnom1' class="button coin_img"
-                                onclick="upgrade_gnom() ,auto()">
-                                Buy
-                                Gnom <br> 100</button>
+                            <button type="button" value="0" id='farm' class="button coin_img" onclick='upgrade_farm()'>
+                                Купить ферму<br>Стоимость: 100 монет</button>
+                            <button type="button" value="0" id='forge' class="button coin_img">
+                                Купить кузницу <br>Стоимость: 1000 монет</button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
                             <p>
                                 Хочешь больше денех за один клик? Так чего ждешь? <b>УЛУЧШАЙ КЛИКИ!</b>
                             </p>
-                            <button type="button" class="button coin_img" id="upgrade1" value="10"
-                                onclick="upgrade_click()">10
-                                рублей</button>
+                            <button type="button" class="button coin_img" id="upgrade_click" value="10"
+                                onclick="upgrade_click()">Стоимость: 500 монет</button>
                             <p>Запутался? -Будь жЁстким, стирай все!</p>
                             <input type="button" value="Clean" class="button" onclick="Clean()">
                         </div>
