@@ -9,45 +9,64 @@ body{
 }
 
 .container{
-    max-width: 1366px;
+    width: 500px;
     margin: 0 auto;
     padding: 0 40px;
 }
 
 .layout {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 120px 1fr 120px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(13, 100px);
+    grid-template-areas: "h h h h h h h h"
+                         "sc sc sc sc sc sc sc sc"
+                         "bt bt bt bt bt bt bt bt"
+                         "bt bt bt bt bt bt bt bt"
+                         "bt bt bt bt bt bt bt bt"
+                         "bt bt bt bt bt bt bt bt"
+                         "bt bt bt bt bt bt bt bt"
+                         "up up up up up up up up"
+                         "up up up up up up up up"
+                         "up up up up up up up up"
+                         "up up up up up up up up"
+                         "f f f f f f f f"
+                         "f f f f f f f f"
 }
 
 .header {
-    grid-column: 1 / 13;
+    grid-area: h;
 }
 
+/* .header_info {
+    grid-area: h1;
+} */
+
 h1{
+    color: black;
     font-size: 60px;
     padding-top: 20px;
     text-align: center;
 }
 
-.rules {
+/* .rules {
     grid-column: 1 / 5;
     border: 1px solid #070707;
-}
+} */
 
 .main {
-    grid-column: 5 / 9;
+    grid-area: bt;
 }
 
 .upgrades {
-    grid-column: 9 / 13;
-    /* display: flex;
+    grid-area: up;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
     border: 1px solid #070707;
 
 }
+
 /* .upgrades_menu {
     display: flex;
     flex-direction: column;
@@ -61,8 +80,9 @@ h3 {
 }
 
 .box{
+    grid-area: sc;
+    /* padding: 10px; */
     border: 1px solid #070707;
-    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +93,6 @@ h3 {
     font-size: 20px;
     padding: 10px 10px;
     box-sizing: border-box;
-    margin-bottom: 40px;
     background-image: url(img/coin.png);
     background-position: 155px;
     background-size: 30px;
@@ -81,10 +100,15 @@ h3 {
     width: 15vw;
 }
 
+.box_button {
+    width: 100%;
+    height: 100%;
+}
+
 .button{
     height: 50px;
     width: 15vw;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     outline: none;
 }
 
@@ -93,10 +117,12 @@ h3 {
 }
 
 .button_circle {
+    width: 100%;
+    height: 100%;
     font-size: 20px;
-    border-radius: 50%;
+    /* border-radius: 50%;
     padding: 5vw;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
     outline: none;
 }
 
@@ -112,7 +138,7 @@ h3 {
 }
 
 .footer {
-    grid-column: 1 / 13;
+    grid-area: f;
     display: flex;
     justify-self: center;
     align-self: center;

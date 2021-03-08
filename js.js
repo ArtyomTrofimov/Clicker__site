@@ -1,4 +1,4 @@
-var click_score = 100000;
+var click_score = 10000;
 var click_lvl = 1;
 var upgrade_mult = 2;
 
