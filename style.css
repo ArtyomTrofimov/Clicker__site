@@ -124,6 +124,9 @@ h3 {
     padding: 5vw;
     margin-bottom: 20px; */
     outline: none;
+    background-image: url(img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .button_circle:hover {
