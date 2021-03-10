@@ -17,16 +17,10 @@ body{
 .layout {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 50px repeat(10, 100px);
+    grid-template-rows: 50px 100px 500px 300px 100px;
     grid-template-areas: "h h h h h h h h"
                          "sc sc sc sc sc sc sc sc"
                          "bt bt bt bt bt bt bt bt"
-                         "bt bt bt bt bt bt bt bt"
-                         "bt bt bt bt bt bt bt bt"
-                         "bt bt bt bt bt bt bt bt"
-                         "bt bt bt bt bt bt bt bt"
-                         "up up up up up up up up"
-                         "up up up up up up up up"
                          "up up up up up up up up"
                          "f f f f f f f f"
 }
@@ -114,6 +108,7 @@ h3 {
     min-width: 15vw;
     /* margin-bottom: 20px; */
     outline: none;
+    margin-bottom: 10px;
 }
 
 .button:hover {
