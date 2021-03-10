@@ -58,6 +58,7 @@ function upgrade(elem) {
 
 
 function boost_inc(elem) {
+
     var inc = elem.dataset.name;
     var arr = inc.split('');
     arr.splice(-1, 1);
@@ -65,6 +66,7 @@ function boost_inc(elem) {
     document.getElementById(str).dataset.incomBoost = parseInt(document.getElementById(str).dataset.incomBoost) * 2;
     var str2 = document.getElementById(str);
     str2.value = parseInt(str2.dataset.lvl) * parseInt(str2.dataset.valueInc) * parseInt(str2.dataset.incomBoost);
+    document.getElementById('farm__upgr').disabled = true;
     auto__inc_check();
 
 
@@ -72,6 +74,7 @@ function boost_inc(elem) {
 
 
 }
+
 
 
 
