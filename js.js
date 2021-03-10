@@ -35,23 +35,38 @@ function upgrade_click() {
 }
 
 function upgrade(elem) {
-
-    var incom = parseInt(elem.value);
+    elem.value = 0;
     var incomInc = parseInt(elem.dataset.valueInc)
     var price = parseInt(elem.dataset.price);
     var lvl = parseInt(elem.dataset.lvl);
     var priceScale = parseInt(elem.dataset.priceInc);
+    var boost = parseInt(elem.dataset.incomBoost);
 
     if (eval((document.getElementById('score').value)) >= price + priceScale * lvl) {
         (document.getElementById('score').value) -= price + priceScale * lvl;
-        elem.value = incom + incomInc;
         elem.dataset.lvl = lvl + 1;
+        elem.value = parseInt(elem.dataset.lvl) * incomInc * boost;
         elem.innerText = elem.dataset.name + '\n' + elem.dataset.lvl + '\nСтоимость: ' + (price + priceScale * (lvl + 1)) + ' монет';
-        document.getElementById('incom').value = parseInt(document.getElementById('incom').value) + parseInt(elem.dataset.valueInc) + '/sec';
+        auto__inc_check();
 
     } else if (eval(document.getElementById('score').value) < price + priceScale * lvl) {
         alert('Недостаточно монет');
     }
+
+}
+
+
+function boost_inc(elem) {
+    var inc = elem.dataset.name;
+    var arr = inc.split('');
+    arr.splice(-1, 1);
+    var str = arr.join('');
+    document.getElementById(str).dataset.incomBoost = parseInt(document.getElementById(str).dataset.incomBoost) * 2;
+    var str2 = document.getElementById(str);
+    str2.value = parseInt(str2.dataset.lvl) * parseInt(str2.dataset.valueInc) * parseInt(str2.dataset.incomBoost);
+    auto__inc_check();
+
+
 
 
 
