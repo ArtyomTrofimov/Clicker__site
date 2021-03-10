@@ -1,4 +1,4 @@
-var click_score = 10000;
+var click_score = 1;
 var click_lvl = 1;
 var upgrade_mult = 2;
 
@@ -9,6 +9,7 @@ function Clean() {
 
 function Click() {
     document.getElementById('score').value = eval(document.getElementById('score').value) + click_score;
+    document.getElementById('audio1').play()
 }
 
 function upgrade_click() {
