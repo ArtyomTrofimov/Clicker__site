@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="js.js "></script>
     <script src="auto.js"></script>
+    <script src="auto2.js"></script>
     <title>Clicker Game</title>
     <link rel="icon" href="img/favicon.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,7 +25,7 @@
             </header>
             <form class="box">
                 <input class="score_block" value="0" id='score' name="score_block" readonly> <img src="" alt="">
-                <input class="incom-block" value="0" id='incom' name="incom-block" readonly>
+                <input class="incom-block" value="0/sec" id='incom' name="incom-block" readonly>
             </form>
             <section class="main">
                 <form class="box_button">
@@ -40,31 +41,34 @@
                             <li class="tabs__item" data-id="tabs-2">Улучшения</li>
                         </ul>
                         <div class="tabs__text select" id="tabs-1">
-                            <button type="button" data-name="Ферма" value="0" data-value-inc="2" id='farm'
-                                data-price="100" data-price-inc="20" data-lvl="0" class="button coin_img"
-                                onclick='upgrade(this)'>
+                            <button type="button" name="build" data-name="Ферма" value="0" data-value-inc="2" id='farm'
+                                data-price="100" data-price-inc="20" data-incom-boost="1" data-lvl="0"
+                                class="button coin_img inc__chech" onclick='upgrade(this)'>
                                 Купить ферму<br>Стоимость: 100</span>
                                 монет</button>
-                            <button type="button" data-name="Кузница" value="0" data-value-inc="6" id='forge'
-                                data-price="1000" data-price-inc="250" data-lvl="0" class="button coin_img"
-                                onclick='upgrade(this)'>
+                            <button type="button" name="build" data-name="Кузница" value="0" data-value-inc="6"
+                                id='forge' data-price="1000" data-price-inc="250" data-incom-boost="1" data-lvl="0"
+                                class="button coin_img inc__chech" onclick='upgrade(this)'>
                                 Купить кузницу <br>Стоимость: 1000 монет</button>
-                            <button type="button" data-name="Таверна" value="0" data-value-inc="22" id='inn'
-                                data-price="5000" data-price-inc="500" data-lvl="0" class="button coin_img"
-                                onclick='upgrade(this)'>
+                            <button type="button" name="build" data-name="Таверна" value="0" data-value-inc="22"
+                                id='inn' data-price="5000" data-price-inc="500" data-incom-boost="1" data-lvl="0"
+                                class="button coin_img inc__chech" onclick='upgrade(this)'>
                                 Купить таверну <br>Стоимость: 5000 монет</button>
-                            <button type="button" data-name="Тренировочная площадка" value="0" data-value-inc="160"
-                                id='barracks' data-price="15000" data-price-inc="2500" data-lvl="0"
-                                class="button coin_img" onclick='upgrade(this)'>
-                                Купить тренировочные площадки <br>Стоимость: 15000 монет</button>
-                            <button type="button" data-name="Шахта" value="0" data-value-inc="500" id='mine'
-                                data-price="50000" data-price-inc="5000" data-lvl="0" class="button coin_img"
+                            <button type="button" name="build" data-name="Тренировочная площадка" value="0"
+                                data-value-inc="160" id='barracks' data-price="15000" data-price-inc="2500"
+                                data-incom-boost="1" data-lvl="0" class="button coin_img inc__chech"
                                 onclick='upgrade(this)'>
+                                Купить тренировочные площадки <br>Стоимость: 15000 монет</button>
+                            <button type="button" name="build" data-name="Шахта" value="0" data-value-inc="500"
+                                id='mine' data-price="50000" data-price-inc="5000" data-incom-boost="1" data-lvl="0"
+                                class="button coin_img inc__chech" onclick='upgrade(this)'>
                                 Купить шахту <br>Стоимость: 50000 монет</button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
                             <button type="button" class="button coin_img" id="upgrade_click" value="10"
                                 onclick="upgrade_click()"> Улучшить клик<br>Стоимость: 500 монет</button>
+                            <button data-name="farm1" onclick="boost_inc(this)">Ферма <br> Доход X
+                                2</button>
                             <button type="button" value="Clean" class="button" onclick="Clean()">Очистить</button>
                         </div>
                     </div>
