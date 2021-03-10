@@ -21,11 +21,11 @@
                 <div class="header_info">
                     <h1>Кликер</h1>
                 </div>
-                <form class="box">
-                    <input class="score_block" value="0" id='score' name="score_block" readonly> <img src="" alt="">
-                    <input class="incom-block" value="0" id='incom' name="incom-block" readonly>
-                </form>
             </header>
+            <form class="box">
+                <input class="score_block" value="0" id='score' name="score_block" readonly> <img src="" alt="">
+                <input class="incom-block" value="0" id='incom' name="incom-block" readonly>
+            </form>
             <section class="main">
                 <form class="box_button">
                     <input type="button" class="button_circle" onclick="Click()">
@@ -63,13 +63,9 @@
                                 Купить шахту <br>Стоимость: 50000 монет</button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
-                            <p>
-                                Хочешь больше денех за один клик? Так чего ждешь? <b>УЛУЧШАЙ КЛИКИ!</b>
-                            </p>
                             <button type="button" class="button coin_img" id="upgrade_click" value="10"
-                                onclick="upgrade_click()">Стоимость: 500 монет</button>
-                            <p>Запутался? -Будь жЁстким, стирай все!</p>
-                            <input type="button" value="Clean" class="button" onclick="Clean()">
+                                onclick="upgrade_click()"> Улучшить клик<br>Стоимость: 500 монет</button>
+                            <button type="button" value="Clean" class="button" onclick="Clean()">Очистить</button>
                         </div>
                     </div>
                     <script>

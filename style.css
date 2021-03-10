@@ -17,7 +17,7 @@ body{
 .layout {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(13, 100px);
+    grid-template-rows: 50px repeat(10, 100px);
     grid-template-areas: "h h h h h h h h"
                          "sc sc sc sc sc sc sc sc"
                          "bt bt bt bt bt bt bt bt"
@@ -28,13 +28,14 @@ body{
                          "up up up up up up up up"
                          "up up up up up up up up"
                          "up up up up up up up up"
-                         "up up up up up up up up"
-                         "f f f f f f f f"
                          "f f f f f f f f"
 }
 
 .header {
     grid-area: h;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* .header_info {
@@ -44,7 +45,7 @@ body{
 h1{
     color: black;
     font-size: 60px;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     text-align: center;
 }
 
@@ -59,10 +60,11 @@ h1{
 
 .upgrades {
     grid-area: up;
-    display: flex;
+    position: relative;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     border: 1px solid #070707;
 
 }
@@ -91,13 +93,15 @@ h3 {
 .score_block{
     text-align: left;
     font-size: 20px;
-    padding: 10px 10px;
+    padding: 5px 10px;
     box-sizing: border-box;
     background-image: url(img/coin.png);
-    background-position: 155px;
+    background-position: 200px;
     background-size: 30px;
     background-repeat: no-repeat;
-    width: 15vw;
+    min-width: 15vw;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .box_button {
@@ -106,8 +110,8 @@ h3 {
 }
 
 .button{
-    height: 50px;
-    width: 15vw;
+    min-height: 50px;
+    min-width: 15vw;
     /* margin-bottom: 20px; */
     outline: none;
 }
@@ -151,6 +155,7 @@ h3 {
 /* Выпадающее меню */
 
 #tabs {
+    position: absolute;
     /* width: 322px; */
     margin: 0 auto;
     padding: 15px;
