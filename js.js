@@ -37,20 +37,21 @@ function upgrade_click() {
 }
 
 function upgrade(elem) {
-    var incomInc = parseInt(elem.dataset.valueInc)
-    var price = parseInt(elem.dataset.price);
-    var lvl = parseInt(elem.dataset.lvl);
-    var priceScale = parseInt(elem.dataset.priceInc);
 
-    if (eval((document.getElementById('score').value)) >= price + priceScale * lvl) {
+    var incomInc = parseInt(elem.dataset.valueInc)
+    var lvl = parseInt(elem.dataset.lvl);
+    var basePrice = parseInt(elem.dataset.basePrice);
+    var price = Math.round(basePrice * Math.pow((1.15), lvl));
+
+    if (eval((document.getElementById('score').value)) >= price) {
         elem.value = 0;
-        (document.getElementById('score').value) -= price + priceScale * lvl;
+        (document.getElementById('score').value) -= price;
         elem.dataset.lvl = lvl + 1;
         elem.value = parseInt(elem.dataset.lvl) * incomInc;
-        elem.innerText = elem.dataset.name + '\n' + elem.dataset.lvl + '\nСтоимость: ' + (price + priceScale * (lvl + 1)) + ' монет';
+        elem.innerText = elem.dataset.name + '\n' + elem.dataset.lvl + '\nСтоимость: ' + (Math.round(basePrice * Math.pow((1.15), lvl + 1))) + ' монет';
         auto__inc_check();
 
-    } else if (eval(document.getElementById('score').value) < price + priceScale * lvl) {
+    } else if (eval(document.getElementById('score').value) < price) {
         alert('Недостаточно монет');
 
     }
@@ -70,20 +71,20 @@ function boost_inc(elem) {
             elem.dataset.lvl = lvl + 1;
             elem.dataset.price = parseInt(elem.dataset.price) + parseInt(elem.dataset.price) * (parseInt(elem.dataset.priceInc) - 1) * parseInt(elem.dataset.lvl);
             upgrade.dataset.incomBoost = parseInt(upgrade.dataset.incomBoost) + 1;
-            elem.innerText = 'Общий бонус для ' + upgrade.dataset.name + ': ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' + 100%\nУровень: ' + elem.dataset.lvl + '\nСтоимость: ' + parseInt(elem.dataset.price) + 'монет';
+            elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' + 100%\nУровень: ' + elem.dataset.lvl + '\nСтоимость: ' + parseInt(elem.dataset.price) + 'монет';
         } else if (lvl == 1) {
             (document.getElementById('score').value) -= parseInt(elem.dataset.price);
             elem.dataset.lvl = lvl + 1;
             elem.dataset.price = parseInt(elem.dataset.price) + parseInt(elem.dataset.price) * (parseInt(elem.dataset.priceInc) - 1) * parseInt(elem.dataset.lvl);
             upgrade.dataset.incomBoost = parseInt(upgrade.dataset.incomBoost) + 1;
-            elem.innerText = 'Общий бонус для ' + upgrade.dataset.name + ': ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
+            elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
         }
 
         auto__inc_check();
     } else if (eval((document.getElementById('score').value)) < parseInt(elem.dataset.price) && parseInt(elem.dataset.lvl) < 2) {
         alert('Недостаточно монет')
     } else {
-        elem.innerText = 'Общий бонус для ' + upgrade.dataset.name + ': ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
+        elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
     }
 }
 

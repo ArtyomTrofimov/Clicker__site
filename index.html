@@ -44,30 +44,29 @@
                         </ul>
                         <div class="tabs__text select" id="tabs-1">
                             <button type="button" name="build" data-name="Ферма" value="0" data-value-inc="2" id='farm'
-                                data-price="20" data-price-inc="4" data-incom-boost="1" data-lvl="0"
-                                class="button coin_img inc__chech" onclick='upgrade(this)'>
-                                Купить ферму<br>Стоимость: 20</span>
+                                data-base-price="10" data-incom-boost="1" data-lvl="0" class="button inc__chech"
+                                onclick='upgrade(this)'>
+                                Купить ферму<br>Стоимость: 10</span>
                                 монет</button>
                             <button type="button" name="build" data-name="Кузница" value="0" data-value-inc="6"
-                                id='forge' data-price="125" data-price-inc="15" data-incom-boost="1" data-lvl="0"
-                                class="button coin_img inc__chech" onclick='upgrade(this)'>
+                                id='forge' data-base-price="125" data-incom-boost="1" data-lvl="0"
+                                class="button inc__chech" onclick='upgrade(this)'>
                                 Купить кузницу <br>Стоимость: 125 монет</button>
                             <button type="button" name="build" data-name="Таверна" value="0" data-value-inc="22"
-                                id='inn' data-price="600" data-price-inc="42" data-incom-boost="1" data-lvl="0"
-                                class="button coin_img inc__chech" onclick='upgrade(this)'>
+                                id='inn' data-base-price="600" data-incom-boost="1" data-lvl="0"
+                                class="button inc__chech" onclick='upgrade(this)'>
                                 Купить таверну <br>Стоимость: 600 монет</button>
                             <button type="button" name="build" data-name="Тренировочная площадка" value="0"
-                                data-value-inc="72" id='barracks' data-price="1800" data-price-inc="120"
-                                data-incom-boost="1" data-lvl="0" class="button coin_img inc__chech"
-                                onclick='upgrade(this)'>
+                                data-value-inc="65" id='barracks' data-base-price="1800" data-incom-boost="1"
+                                data-lvl="0" class="button inc__chech" onclick='upgrade(this)'>
                                 Купить тренировочные площадки <br>Стоимость: 1800 монет</button>
-                            <button type="button" name="build" data-name="Шахта" value="0" data-value-inc="222"
-                                id='mine' data-price="5600" data-price-inc="400" data-incom-boost="1" data-lvl="0"
-                                class="button coin_img inc__chech" onclick='upgrade(this)'>
+                            <button type="button" name="build" data-name="Шахта" value="0" data-value-inc="200"
+                                id='mine' data-base-price="5600" data-incom-boost="1" data-lvl="0"
+                                class="button inc__chech" onclick='upgrade(this)'>
                                 Купить шахту <br>Стоимость: 5600 монет</button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
-                            <button type="button" class="button coin_img" id="upgrade_click" value="10"
+                            <button type="button" class="button" id="upgrade_click" value="10"
                                 onclick="upgrade_click()"> Улучшить клик<br>Стоимость: 500 монет</button>
                             <button data-lvl="0" data-price="200" data-price-inc="33" class="button" data-name="farm1"
                                 onclick="boost_inc(this)">Ферма
@@ -75,13 +74,16 @@
                             <button data-lvl="0" data-price="2500" data-price-inc="33" class="button" data-name="forge1"
                                 onclick="boost_inc(this)">Кузница <br> Доход
                                 + 100% <br> Стоимость: 2500 монет </button>
-                            <button class="button" data-name="inn1" onclick="boost_inc(this)">Таверна <br> Доход X
-                                2</button>
-                            <button class="button" data-name="barracks1" onclick="boost_inc(this)">Тренировочная
-                                площадка <br> Доход X
-                                2</button>
-                            <button class="button" data-name="mine1" onclick="boost_inc(this)">Шахта <br> Доход X
-                                2</button>
+                            <button data-lvl="0" data-price="12000" data-price-inc="33" class="button" data-name="inn1"
+                                onclick="boost_inc(this)">Таверна <br> Доход +
+                                100% <br> Стоимость: 12000 монет</button>
+                            <button data-lvl="0" data-price="36000" data-price-inc="33" class="button"
+                                data-name="barracks1" onclick="boost_inc(this)">Тренировочная
+                                площадка <br> Доход + 100% <br> Стоимость: 36000 монет
+                            </button>
+                            <button data-lvl="0" data-price="112000" data-price-inc="33" class="button"
+                                data-name="mine1" onclick="boost_inc(this)">Шахта
+                                <br> Доход + 100% <br> Стоимость: 112000 монет</button>
                             <button class="button" type="button" value="Clean" class="button"
                                 onclick="Clean()">Очистить</button>
                         </div>
