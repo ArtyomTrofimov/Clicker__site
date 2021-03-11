@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="js.js "></script>
-    <script src="auto.js"></script>
-    <script src="auto2.js"></script>
+    <script src="auto_inc.js"></script>
+    <script src="auto_check.js"></script>
+    <script src="reser_clean.js"></script>
     <title>Clicker Game</title>
     <link rel="icon" href="img/favicon.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -45,9 +46,7 @@
                         <div class="tabs__text select" id="tabs-1">
                             <button type="button" name="build" data-name="Ферма" value="0" data-value-inc="2" id='farm'
                                 data-base-price="10" data-incom-boost="1" data-lvl="0" class="button inc__chech"
-                                onclick='upgrade(this)'>
-                                Купить ферму<br>Стоимость: 10</span>
-                                монет</button>
+                                onclick='upgrade(this)'>Купить ферму<br>Стоимость: 10 монет</button>
                             <button type="button" name="build" data-name="Кузница" value="0" data-value-inc="6"
                                 id='forge' data-base-price="125" data-incom-boost="1" data-lvl="0"
                                 class="button inc__chech" onclick='upgrade(this)'>
@@ -64,6 +63,10 @@
                                 id='mine' data-base-price="5600" data-incom-boost="1" data-lvl="0"
                                 class="button inc__chech" onclick='upgrade(this)'>
                                 Купить шахту <br>Стоимость: 5600 монет</button>
+                            <button type="button" name="build" data-name="Крепость" value="0" data-value-inc="650"
+                                id='castle' data-base-price="38000" data-incom-boost="1" data-lvl="0"
+                                class="button inc__chech" onclick='upgrade(this)'>Купить Крепость<br>Стоимость: 38000
+                                монет</button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
                             <button type="button" class="button" id="upgrade_click" value="10"
@@ -84,8 +87,12 @@
                             <button data-lvl="0" data-price="112000" data-price-inc="33" class="button"
                                 data-name="mine1" onclick="boost_inc(this)">Шахта
                                 <br> Доход + 100% <br> Стоимость: 112000 монет</button>
-                            <button class="button" type="button" value="Clean" class="button"
-                                onclick="Clean()">Очистить</button>
+                            <button data-lvl="0" data-price="764000" data-price-inc="33" class="button"
+                                data-name="castle1" onclick="boost_inc(this)">Крепость
+                                <br> Доход + 100% <br> Стоимость: 764000 монет</button>
+                            <button class="button" type="button" value="Clean" onclick="Clean()">Очистить</button>
+                            <button class="button" type="button" value="Reset" onclick="Reset()">Сбросить
+                                прогресс</button>
                         </div>
                     </div>
                     <script>
