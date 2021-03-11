@@ -1,4 +1,4 @@
-var click_score = 1;
+var click_score = 100000;
 var click_lvl = 1;
 var upgrade_mult = 2;
 
@@ -24,6 +24,7 @@ function upgrade_click() {
             click_score += 45;
             click_lvl += 1;
             document.getElementById('upgrade_click').innerText = 'Вы максимально улучшили клик';
+            document.getElementById('upgrade_click').disabled = true;
         }
         upgrade_mult += 1;
 
@@ -36,43 +37,54 @@ function upgrade_click() {
 }
 
 function upgrade(elem) {
-    elem.value = 0;
     var incomInc = parseInt(elem.dataset.valueInc)
     var price = parseInt(elem.dataset.price);
     var lvl = parseInt(elem.dataset.lvl);
     var priceScale = parseInt(elem.dataset.priceInc);
-    var boost = parseInt(elem.dataset.incomBoost);
 
     if (eval((document.getElementById('score').value)) >= price + priceScale * lvl) {
+        elem.value = 0;
         (document.getElementById('score').value) -= price + priceScale * lvl;
         elem.dataset.lvl = lvl + 1;
-        elem.value = parseInt(elem.dataset.lvl) * incomInc * boost;
+        elem.value = parseInt(elem.dataset.lvl) * incomInc;
         elem.innerText = elem.dataset.name + '\n' + elem.dataset.lvl + '\nСтоимость: ' + (price + priceScale * (lvl + 1)) + ' монет';
         auto__inc_check();
 
     } else if (eval(document.getElementById('score').value) < price + priceScale * lvl) {
         alert('Недостаточно монет');
-    }
 
+    }
 }
 
 
 function boost_inc(elem) {
 
-    var inc = elem.dataset.name;
-    var arr = inc.split('');
-    arr.splice(-1, 1);
-    var str = arr.join('');
-    document.getElementById(str).dataset.incomBoost = parseInt(document.getElementById(str).dataset.incomBoost) * 2;
-    var str2 = document.getElementById(str);
-    str2.value = parseInt(str2.dataset.lvl) * parseInt(str2.dataset.valueInc) * parseInt(str2.dataset.incomBoost);
-    document.getElementById('farm__upgr').disabled = true;
-    auto__inc_check();
+    var inc = (elem.dataset.name).split('');
+    inc.splice(-1, 1);
+    var str = inc.join('');
+    var upgrade = document.getElementById(str);
+    var lvl = parseInt(elem.dataset.lvl);
+    if (eval((document.getElementById('score').value)) >= parseInt(elem.dataset.price) && lvl < 2) {
+        if (lvl < 1) {
+            (document.getElementById('score').value) -= parseInt(elem.dataset.price);
+            elem.dataset.lvl = lvl + 1;
+            elem.dataset.price = parseInt(elem.dataset.price) + parseInt(elem.dataset.price) * (parseInt(elem.dataset.priceInc) - 1) * parseInt(elem.dataset.lvl);
+            upgrade.dataset.incomBoost = parseInt(upgrade.dataset.incomBoost) + 1;
+            elem.innerText = 'Общий бонус для ' + upgrade.dataset.name + ': ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' + 100%\nУровень: ' + elem.dataset.lvl + '\nСтоимость: ' + parseInt(elem.dataset.price) + 'монет';
+        } else if (lvl == 1) {
+            (document.getElementById('score').value) -= parseInt(elem.dataset.price);
+            elem.dataset.lvl = lvl + 1;
+            elem.dataset.price = parseInt(elem.dataset.price) + parseInt(elem.dataset.price) * (parseInt(elem.dataset.priceInc) - 1) * parseInt(elem.dataset.lvl);
+            upgrade.dataset.incomBoost = parseInt(upgrade.dataset.incomBoost) + 1;
+            elem.innerText = 'Общий бонус для ' + upgrade.dataset.name + ': ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
+        }
 
-
-
-
-
+        auto__inc_check();
+    } else if (eval((document.getElementById('score').value)) < parseInt(elem.dataset.price) && parseInt(elem.dataset.lvl) < 2) {
+        alert('Недостаточно монет')
+    } else {
+        elem.innerText = 'Общий бонус для ' + upgrade.dataset.name + ': ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
+    }
 }
 
 
