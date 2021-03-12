@@ -35,9 +35,10 @@ function Reset() {
     castle.innerText = 'Купить шахту\nСтоимость: 5600 монет';
 
     document.getElementById('incom').value = '0/sec';
-    Clean();
+    document.getElementById('score').dataset.incom = 0;
+    document.getElementById('score').value = 0;
     note({
-        content: "Сброшено текушее состояние игры",
+        content: "Сброшено текушее состояние игры до старта",
         type: "success",
         time: 3
     });

@@ -12,6 +12,7 @@
     <script src="Scripts/auto_check.js"></script>
     <script src="Scripts/reser_clean.js"></script>
     <script src="Scripts/toast.js"></script>
+    <script src="Scripts/click_particle.js"></script>
     <title>Clicker Game</title>
     <link rel="icon" href="Css/img/favicon.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -34,7 +35,8 @@
             </form>
             <section class="main">
                 <form class="box_button">
-                    <input type="button" class="button_circle" onclick="Click()">
+                    <input type="button" class="button_circle" data-type="shadow" onclick="Click(),pop(event)"
+                        data-type="logo">
 
                 </form>
             </section>

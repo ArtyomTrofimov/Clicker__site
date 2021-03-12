@@ -195,3 +195,13 @@ h3 {
 .tabs__text.select {
     display: block;
 }
+
+particle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
