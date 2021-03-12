@@ -1,6 +1,11 @@
 function Clean() {
     document.getElementById('score').dataset.incom = 0;
     document.getElementById('score').value = 0;
+    note({
+        content: "Сброшено текушее количество монет",
+        type: "success",
+        time: 3
+    });
 }
 
 function Reset() {
@@ -31,4 +36,9 @@ function Reset() {
 
     document.getElementById('incom').value = '0/sec';
     Clean();
+    note({
+        content: "Сброшено текушее состояние игры",
+        type: "success",
+        time: 3
+    });
 }

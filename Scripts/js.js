@@ -6,7 +6,13 @@ function Click() {
     document.getElementById('score').dataset.incom = parseInt(document.getElementById('score').dataset.incom) + click_score;
     var incomeClick = +document.getElementById('score').dataset.incom;
     document.getElementById('score').value = incomeClick.toLocaleString();
-    document.getElementById('audio1').play()
+    var audio__rnd = Math.round(Math.random());
+    if (audio__rnd == 0) {
+        document.getElementById('audio1').play()
+    } else {
+        document.getElementById('audio2').play()
+    }
+
 
 }
 
@@ -14,11 +20,11 @@ function Click() {
 function upgrade_click() {
     if (eval(document.getElementById('score').dataset.incom) >= 5 * Math.pow(10, upgrade_mult) && click_lvl <= 2) {
         (document.getElementById('score').dataset.incom) -= 5 * Math.pow(10, upgrade_mult);
-
+        document.getElementById('score').value = (+document.getElementById('score').dataset.incom).toLocaleString();
         if (click_lvl == 1) {
             click_score += 4;
             click_lvl += 1;
-            document.getElementById("upgrade_click").innerText = 'Стоимость: ' + 5 * Math.pow(10, upgrade_mult + 1) + ' монет';
+            document.getElementById("upgrade_click").innerText = 'Стоимость: ' + (5 * Math.pow(10, upgrade_mult + 1)).toLocaleString() + ' монет';
         } else if (click_lvl == 2) {
             click_score += 45;
             click_lvl += 1;
@@ -28,7 +34,11 @@ function upgrade_click() {
         upgrade_mult += 1;
 
     } else if (eval(document.getElementById('score').value) < 5 * Math.pow(10, upgrade_mult) && click_lvl != 3) {
-        alert('Недостаточно монет');
+        note({
+            content: "Недостаточно монет",
+            type: "error",
+            time: 1
+        });
     } else {
         document.getElementById('score').innerText = 'Вы максимально улучшили клик';
     }
@@ -52,7 +62,11 @@ function upgrade(elem) {
         auto__inc_check();
 
     } else if (eval(document.getElementById('score').dataset.incom) < price) {
-        alert('Недостаточно монет');
+        note({
+            content: "Недостаточно монет",
+            type: "error",
+            time: 1
+        });
 
     }
 }
@@ -84,7 +98,11 @@ function boost_inc(elem) {
 
         auto__inc_check();
     } else if (+document.getElementById('score').dataset.incom < parseInt(elem.dataset.price) && parseInt(elem.dataset.lvl) < 9) {
-        alert('Недостаточно монет')
+        note({
+            content: "Недостаточно монет",
+            type: "error",
+            time: 1
+        });
     } else {
         elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
     }
