@@ -1,4 +1,5 @@
 function Clean() {
+    document.getElementById('score').dataset.incom = 0;
     document.getElementById('score').value = 0;
 }
 
@@ -28,6 +29,6 @@ function Reset() {
     castle.dataset.lvl = 0;
     castle.innerText = 'Купить шахту\nСтоимость: 5600 монет';
 
-    document.getElementById('incom').value = 0;
+    document.getElementById('incom').value = '0/sec';
     Clean();
 }

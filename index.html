@@ -27,8 +27,8 @@
                 </div>
             </header>
             <form class="box">
-                <input class="score_block" value="0" id='score' name="score_block" readonly> <img src="" alt="">
-                <input class="incom-block" value="0/sec" id='incom' name="incom-block" readonly>
+                <input class="score_block" data-incom="0" value="0" id='score' name="score_block" readonly>
+                <input class="incom-block" data-incomSec="0" value="0/sec" id='incom' name="incom-block" readonly>
             </form>
             <section class="main">
                 <form class="box_button">
@@ -58,14 +58,14 @@
                             <button type="button" name="build" data-name="Тренировочная площадка" value="0"
                                 data-value-inc="65" id='barracks' data-base-price="1800" data-incom-boost="1"
                                 data-lvl="0" class="button inc__chech" onclick='upgrade(this)'>
-                                Купить тренировочные площадки <br>Стоимость: 1800 монет</button>
+                                Купить тренировочные площадки <br>Стоимость: 1 800 монет</button>
                             <button type="button" name="build" data-name="Шахта" value="0" data-value-inc="200"
                                 id='mine' data-base-price="5600" data-incom-boost="1" data-lvl="0"
                                 class="button inc__chech" onclick='upgrade(this)'>
-                                Купить шахту <br>Стоимость: 5600 монет</button>
+                                Купить шахту <br>Стоимость: 5 600 монет</button>
                             <button type="button" name="build" data-name="Крепость" value="0" data-value-inc="650"
                                 id='castle' data-base-price="38000" data-incom-boost="1" data-lvl="0"
-                                class="button inc__chech" onclick='upgrade(this)'>Купить Крепость<br>Стоимость: 38000
+                                class="button inc__chech" onclick='upgrade(this)'>Купить Крепость<br>Стоимость: 38 000
                                 монет</button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
@@ -76,20 +76,20 @@
                                 <br> Доход + 100% <br> Стоимость: 200 монет</button>
                             <button data-lvl="0" data-price="2500" data-price-inc="33" class="button" data-name="forge1"
                                 onclick="boost_inc(this)">Кузница <br> Доход
-                                + 100% <br> Стоимость: 2500 монет </button>
+                                + 100% <br> Стоимость: 2 500 монет </button>
                             <button data-lvl="0" data-price="12000" data-price-inc="33" class="button" data-name="inn1"
                                 onclick="boost_inc(this)">Таверна <br> Доход +
-                                100% <br> Стоимость: 12000 монет</button>
+                                100% <br> Стоимость: 12 000 монет</button>
                             <button data-lvl="0" data-price="36000" data-price-inc="33" class="button"
                                 data-name="barracks1" onclick="boost_inc(this)">Тренировочная
-                                площадка <br> Доход + 100% <br> Стоимость: 36000 монет
+                                площадка <br> Доход + 100% <br> Стоимость: 36 000 монет
                             </button>
                             <button data-lvl="0" data-price="112000" data-price-inc="33" class="button"
                                 data-name="mine1" onclick="boost_inc(this)">Шахта
-                                <br> Доход + 100% <br> Стоимость: 112000 монет</button>
+                                <br> Доход + 100% <br> Стоимость: 112 000 монет</button>
                             <button data-lvl="0" data-price="764000" data-price-inc="33" class="button"
                                 data-name="castle1" onclick="boost_inc(this)">Крепость
-                                <br> Доход + 100% <br> Стоимость: 764000 монет</button>
+                                <br> Доход + 100% <br> Стоимость: 764 000 монет</button>
                             <button class="button" type="button" value="Clean" onclick="Clean()">Очистить</button>
                             <button class="button" type="button" value="Reset" onclick="Reset()">Сбросить
                                 прогресс</button>
