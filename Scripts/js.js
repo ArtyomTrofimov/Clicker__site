@@ -6,8 +6,10 @@ function Click() {
     document.getElementById('score').dataset.incom = parseInt(document.getElementById('score').dataset.incom) + click_score;
     var incomeClick = +document.getElementById('score').dataset.incom;
     document.getElementById('score').value = incomeClick.toLocaleString();
-    var audio__rnd = Math.round(Math.random());
-    if (audio__rnd == 0) {
+    var min = 1;
+    var max = 2;
+    var audio__rnd = Math.round(min - 0.5 + Math.random() * (max - min + 1));
+    if (audio__rnd == 1) {
         document.getElementById('audio1').play()
     } else {
         document.getElementById('audio2').play()
