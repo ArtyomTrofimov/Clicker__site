@@ -7,17 +7,20 @@ function Click() {
     var incomeClick = +document.getElementById('score').dataset.incom;
     document.getElementById('score').value = incomeClick.toLocaleString();
     var min = 1;
-    var max = 2;
+    var max = 5;
     var audio__rnd = Math.round(min - 0.5 + Math.random() * (max - min + 1));
     if (audio__rnd == 1) {
         document.getElementById('audio1').play()
-    } else {
+    } else if (audio__rnd == 2) {
         document.getElementById('audio2').play()
+    } else if (audio__rnd == 3) {
+        document.getElementById('audio3').play()
+    } else if (audio__rnd == 4) {
+        document.getElementById('audio4').play()
+    } else {
+        document.getElementById('audio5').play()
     }
-
-
 }
-
 
 function upgrade_click() {
     if (eval(document.getElementById('score').dataset.incom) >= 5 * Math.pow(10, upgrade_mult) && click_lvl <= 2) {
