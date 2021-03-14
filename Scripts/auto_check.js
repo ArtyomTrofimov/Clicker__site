@@ -7,5 +7,5 @@ function auto__inc_check() {
         int += parseInt(str[i].value) * parseInt(str[i].dataset.incomBoost);
 
     }
-    document.getElementById('incom').value = int.toLocaleString() + '/sec';
+    document.getElementById('incom').value = KMBMaker(int) + '/sec';
 }

@@ -1,14 +1,12 @@
 function auto() {
-    var score = parseInt(document.getElementById('score').dataset.incom);
-    var farmValue = parseInt(document.getElementById('farm').value) * parseInt(document.getElementById('farm').dataset.incomBoost);
-    var forgeValue = parseInt(document.getElementById('forge').value) * parseInt(document.getElementById('forge').dataset.incomBoost);
-    var innValue = parseInt(document.getElementById('inn').value) * parseInt(document.getElementById('inn').dataset.incomBoost);
-    var barracksValue = parseInt(document.getElementById('barracks').value) * parseInt(document.getElementById('barracks').dataset.incomBoost);
-    var mineValue = parseInt(document.getElementById('mine').value) * parseInt(document.getElementById('mine').dataset.incomBoost);
-    var castleValue = parseInt(document.getElementById('castle').value) * parseInt(document.getElementById('castle').dataset.incomBoost);
-    document.getElementById('score').dataset.incom = score + farmValue + forgeValue + innValue + barracksValue + mineValue + castleValue;
-    var scoreVisual = +document.getElementById('score').dataset.incom;
-    document.getElementById('score').value = scoreVisual.toLocaleString();
+    var int = parseInt(document.getElementById('score').dataset.incom);
+    var str = document.getElementsByName('build');
+    for (i = 0; i < str.length; i++) {
+        int += parseInt(str[i].value) * parseInt(str[i].dataset.incomBoost);
+
+    }
+    document.getElementById('score').dataset.incom = int;
+    document.getElementById('score').value = KMBMaker(int);
 }
 
 setInterval(auto, 1000);

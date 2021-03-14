@@ -32,7 +32,10 @@ function Reset() {
     mine.innerText = 'Купить шахту\nСтоимость: 5600 монет';
     castle.value = 0;
     castle.dataset.lvl = 0;
-    castle.innerText = 'Купить шахту\nСтоимость: 5600 монет';
+    castle.innerText = 'Купить крепость\nСтоимость: 5600 монет';
+    temple.value = 0;
+    temple.dataset.lvl = 0;
+    temple.innerText = 'Купить храм\nСтоимость: 5600 монет';
 
     document.getElementById('incom').value = '0/sec';
     document.getElementById('score').dataset.incom = 0;
