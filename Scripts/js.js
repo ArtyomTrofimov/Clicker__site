@@ -1,11 +1,8 @@
-var click_score = 10000000000000;
-var click_lvl = 1;
-var upgrade_mult = 2;
-
 function Click() {
-    document.getElementById('score').dataset.incom = parseInt(document.getElementById('score').dataset.incom) + click_score;
-    var incomeClick = +document.getElementById('score').dataset.incom;
-    document.getElementById('score').value = KMBMaker(incomeClick);
+    var score = document.getElementById('score');
+    score.dataset.incom = parseInt(score.dataset.incom) + +document.getElementById("upgrade_click").value;
+    var incomeClick = +score.dataset.incom;
+    score.value = KMBMaker(incomeClick);
     var min = 1;
     var max = 5;
     var audio__rnd = Math.round(min - 0.5 + Math.random() * (max - min + 1));
@@ -23,29 +20,23 @@ function Click() {
 }
 
 function upgrade_click() {
-    if (eval(document.getElementById('score').dataset.incom) >= 5 * Math.pow(10, upgrade_mult) && click_lvl <= 2) {
-        (document.getElementById('score').dataset.incom) -= 5 * Math.pow(10, upgrade_mult);
-        document.getElementById('score').value = KMBMaker(+document.getElementById('score').dataset.incom);
-        if (click_lvl == 1) {
-            click_score += 4;
-            click_lvl += 1;
-            document.getElementById("upgrade_click").innerText = 'Стоимость: ' + KMBMaker(5 * Math.pow(10, upgrade_mult + 1)) + ' монет';
-        } else if (click_lvl == 2) {
-            click_score += 45;
-            click_lvl += 1;
-            document.getElementById('upgrade_click').innerText = 'Вы максимально улучшили клик';
-            document.getElementById('upgrade_click').disabled = true;
-        }
-        upgrade_mult += 1;
+    var score = document.getElementById('score');
+    var click = document.getElementById("upgrade_click");
+    if (eval(score.dataset.incom) >= click.dataset.price) {
+        score.dataset.incom -= click.dataset.price;
+        score.value = KMBMaker(+score.dataset.incom);
+        click.value = +click.value * 5;
+        click.dataset.price = click.dataset.price * click.dataset.priceInc;
+        click.innerText = 'Улучшить клик\nСтоимость: ' + KMBMaker(click.dataset.price);
 
-    } else if (eval(document.getElementById('score').value) < 5 * Math.pow(10, upgrade_mult) && click_lvl != 3) {
+    } else if (eval(score.value) < 5 * click.dataset.price) {
         note({
             content: "Недостаточно монет",
             type: "error",
             time: 1
         });
     } else {
-        document.getElementById('score').innerText = 'Вы максимально улучшили клик';
+        score.innerText = 'Вы максимально улучшили клик';
     }
 
 }
