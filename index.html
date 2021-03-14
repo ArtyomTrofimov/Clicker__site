@@ -13,6 +13,8 @@
     <script src="Scripts/reser_clean.js"></script>
     <script src="Scripts/toast.js"></script>
     <script src="Scripts/click_particle.js"></script>
+    <script src="Scripts/buy_switch.js"></script>
+    <script src="Scripts/numRepl.js"></script>
     <title>Clicker Game</title>
     <link rel="icon" href="Css/img/favicon.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -51,6 +53,7 @@
                             <li class="tabs__item" data-id="tabs-2">Улучшения</li>
                         </ul>
                         <div class="tabs__text select" id="tabs-1">
+                            <button id="buy_switch" value="1" onclick="switchBuy(this)">X 1</button>
                             <button type="button" name="build" data-name="Ферма" value="0" data-value-inc="2" id='farm'
                                 data-base-price="10" data-incom-boost="1" data-lvl="0" class="button inc__chech"
                                 onclick='upgrade(this)'>Купить ферму<br>Стоимость: 10 </button>
@@ -78,32 +81,46 @@
                                 id='temple' data-base-price="442000" data-incom-boost="1" data-lvl="0"
                                 class="button inc__chech" onclick='upgrade(this)'>Купить Храм<br>Стоимость: 442
                                 K</button>
+                            <button type="button" name="build" data-name="Арена" value="0" data-value-inc="8500"
+                                id='arena' data-base-price="7300000" data-incom-boost="1" data-lvl="0"
+                                class="button inc__chech" onclick='upgrade(this)'>Купить Арена<br>Стоимость: 7.30
+                                M</button>
+                            <button type="button" name="build" data-name="Башня мага" value="0" data-value-inc="100000"
+                                id='magetwr' data-base-price="145000000" data-incom-boost="1" data-lvl="0"
+                                class="button inc__chech" onclick='upgrade(this)'>Купить Башня мага<br>Стоимость: 145 M
+                            </button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
                             <button type="button" class="button" id="upgrade_click" value="10"
                                 onclick="upgrade_click()"> Улучшить клик<br>Стоимость: 500 </button>
-                            <button data-lvl="0" data-price="200" data-price-inc="20" class="button" data-name="farm1"
+                            <button data-lvl="0" data-price="200" data-price-inc="10" class="button" data-name="farm1"
                                 onclick="boost_inc(this)">Ферма
                                 <br> Доход + 100% <br> Стоимость: 200 </button>
-                            <button data-lvl="0" data-price="2500" data-price-inc="20" class="button" data-name="forge1"
+                            <button data-lvl="0" data-price="2500" data-price-inc="10" class="button" data-name="forge1"
                                 onclick="boost_inc(this)">Кузница <br> Доход
                                 + 100% <br> Стоимость: 2.5 K </button>
-                            <button data-lvl="0" data-price="12000" data-price-inc="20" class="button" data-name="inn1"
+                            <button data-lvl="0" data-price="12000" data-price-inc="10" class="button" data-name="inn1"
                                 onclick="boost_inc(this)">Таверна <br> Доход +
                                 100% <br> Стоимость: 12 K</button>
-                            <button data-lvl="0" data-price="36000" data-price-inc="20" class="button"
+                            <button data-lvl="0" data-price="36000" data-price-inc="10" class="button"
                                 data-name="barracks1" onclick="boost_inc(this)">Тренировочная
                                 площадка <br> Доход + 100% <br> Стоимость: 36 K
                             </button>
-                            <button data-lvl="0" data-price="112000" data-price-inc="20" class="button"
+                            <button data-lvl="0" data-price="112000" data-price-inc="10" class="button"
                                 data-name="mine1" onclick="boost_inc(this)">Шахта
                                 <br> Доход + 100% <br> Стоимость: 112 K</button>
-                            <button data-lvl="0" data-price="764000" data-price-inc="20" class="button"
+                            <button data-lvl="0" data-price="764000" data-price-inc="10" class="button"
                                 data-name="castle1" onclick="boost_inc(this)">Крепость
                                 <br> Доход + 100% <br> Стоимость: 764 K</button>
-                            <button data-lvl="0" data-price="8890000" data-price-inc="20" class="button"
+                            <button data-lvl="0" data-price="8890000" data-price-inc="10" class="button"
                                 data-name="temple1" onclick="boost_inc(this)">Храм
                                 <br> Доход + 100% <br> Стоимость: 8.89 M</button>
+                            <button data-lvl="0" data-price="146800000" data-price-inc="10" class="button"
+                                data-name="arena1" onclick="boost_inc(this)">Арена
+                                <br> Доход + 100% <br> Стоимость: 146.8 M</button>
+                            <button data-lvl="0" data-price="2916000000" data-price-inc="10" class="button"
+                                data-name="magetwr1" onclick="boost_inc(this)">Башня мага
+                                <br> Доход + 100% <br> Стоимость: 2.916 B</button>
                             <button class="button" type="button" value="Clean" onclick="Clean()">Очистить</button>
                             <button class="button" type="button" value="Reset" onclick="Reset()">Сбросить
                                 прогресс</button>

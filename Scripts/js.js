@@ -56,25 +56,34 @@ function upgrade(elem) {
     var lvl = parseInt(elem.dataset.lvl);
     var basePrice = parseInt(elem.dataset.basePrice);
     var price = Math.round(basePrice * Math.pow((1.15), lvl));
-
+    var buy_count = +document.getElementById('buy_switch').value;
+    var counter = 1;
+    for (j = 0; j < buy_count - 1; j++) {
+        price += Math.round(basePrice * Math.pow((1.15), lvl + counter));
+        counter++;
+    }
     if (eval((document.getElementById('score').dataset.incom)) >= price) {
-        elem.value = 0;
         (document.getElementById('score').dataset.incom) -= price;
         document.getElementById('score').value = KMBMaker(+document.getElementById('score').dataset.incom);
-        elem.dataset.lvl = lvl + 1;
+        elem.dataset.lvl = lvl + buy_count;
         elem.value = parseInt(elem.dataset.lvl) * incomInc;
-        elem.innerText = elem.dataset.name + '\n' + elem.dataset.lvl + '\nСтоимость: ' + KMBMaker(Math.round(basePrice * Math.pow((1.15), lvl + 1))) + ' монет';
+        switchBuy(document.getElementById('buy_switch'));
+        switchBuy(document.getElementById('buy_switch'));
         auto__inc_check();
 
-    } else if (eval(document.getElementById('score').dataset.incom) < price) {
+    }
+    else if (eval(document.getElementById('score').dataset.incom) < price) {
         note({
             content: "Недостаточно монет",
             type: "error",
             time: 1
         });
-
     }
 }
+
+
+
+
 
 
 function boost_inc(elem) {
@@ -84,14 +93,14 @@ function boost_inc(elem) {
     var str = inc.join('');
     var upgrade = document.getElementById(str);
     var lvl = parseInt(elem.dataset.lvl);
-    if (+document.getElementById('score').dataset.incom >= parseInt(elem.dataset.price) && lvl < 9) {
+    if (+document.getElementById('score').dataset.incom >= parseInt(elem.dataset.price) && lvl <= 8) {
         if (lvl < 8) {
             (document.getElementById('score').dataset.incom) -= parseInt(elem.dataset.price);
             document.getElementById('score').value = KMBMaker(+document.getElementById('score').dataset.incom);
             elem.dataset.lvl = lvl + 1;
             elem.dataset.price = parseInt(elem.dataset.price) + parseInt(elem.dataset.price) * (parseInt(elem.dataset.priceInc) - 1) * parseInt(elem.dataset.lvl);
             upgrade.dataset.incomBoost = parseInt(upgrade.dataset.incomBoost) + 1;
-            elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' + 100%\nУровень: ' + elem.dataset.lvl + '\nСтоимость: ' + KMBMaker(+elem.dataset.price) + ' монет';
+            elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' + 100%\nУровень: ' + elem.dataset.lvl + '\nСтоимость: ' + KMBMaker(+elem.dataset.price);
         } else if (lvl == 8) {
             (document.getElementById('score').dataset.incom) -= parseInt(elem.dataset.price);
             document.getElementById('score').value = KMBMaker(+document.getElementById('score').dataset.incom);
@@ -111,20 +120,4 @@ function boost_inc(elem) {
     } else {
         elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
     }
-}
-
-function KMBMaker(elem) {
-    var num = elem;
-    sqrtNum = 1;
-    var arrayRdc = ['', ' K', ' M', ' B', ' T', ' q', ' Q', ' s', ' S', ' O', ' N'];
-    for (i = 1000; ; i = i * 1000) {
-        if (num < i) {
-            var numStr = +(num / (i / 1000)).toFixed(3);
-            var text = numStr + arrayRdc[sqrtNum - 1];
-            break;
-        }
-        sqrtNum++;
-
-    }
-    return text;
 }
