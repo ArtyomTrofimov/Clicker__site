@@ -1,3 +1,4 @@
+//Функция очистки поля текущего количества очков
 function Clean() {
     document.getElementById('score').dataset.incom = 0;
     document.getElementById('score').value = 0;
@@ -7,7 +8,7 @@ function Clean() {
         time: 3
     });
 }
-
+//Функция полного сброса игры до начала
 function Reset() {
     var farm = document.getElementById('farm');
     var forge = document.getElementById('forge');

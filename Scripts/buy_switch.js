@@ -1,3 +1,4 @@
+//Функция смены переключателя для покупки зданий и обрабоки стоимости на основе переключателя 
 function switchBuy(elem) {
     var buy = +elem.value;
     var str = document.getElementsByName('build');

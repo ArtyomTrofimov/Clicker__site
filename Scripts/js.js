@@ -1,8 +1,11 @@
+//Для KMBMaker смотреть файл numRepl.js
+//Функция определения нажатия и звуковых эффектов
 function Click() {
     var score = document.getElementById('score');
     score.dataset.incom = parseInt(score.dataset.incom) + +document.getElementById("upgrade_click").value;
     var incomeClick = +score.dataset.incom;
-    score.value = KMBMaker(incomeClick);
+    score.value = KMBMaker(incomeClick);    //Изменение отображений чисел через функцию
+    //Определение звуковых эффектов для нажатия
     var min = 1;
     var max = 5;
     var audio__rnd = Math.round(min - 0.5 + Math.random() * (max - min + 1));
@@ -18,15 +21,15 @@ function Click() {
         document.getElementById('audio5').play()
     }
 }
-
+//Функция улучшение нажатия
 function upgrade_click() {
-    var score = document.getElementById('score');
-    var click = document.getElementById("upgrade_click");
+    var score = document.getElementById('score');   //Получение элемента подсчёта очков
+    var click = document.getElementById("upgrade_click");   //Получение элемента улучшения нажатия
     if (eval(score.dataset.incom) >= click.dataset.price) {
-        score.dataset.incom -= click.dataset.price;
-        score.value = KMBMaker(+score.dataset.incom);
+        score.dataset.incom -= click.dataset.price;     //Вычитание из элемента подсчёта очков стоимость улучшения нажатия
+        score.value = KMBMaker(+score.dataset.incom);   //Преобразования числа с помощью функции
         click.value = +click.value * 5;
-        click.dataset.price = click.dataset.price * click.dataset.priceInc;
+        click.dataset.price = click.dataset.price * click.dataset.priceInc;     //Увеличение цены улучшения
         click.innerText = 'Улучшить клик\nСтоимость: ' + KMBMaker(click.dataset.price);
 
     } else if (eval(score.value) < 5 * click.dataset.price) {
@@ -40,14 +43,15 @@ function upgrade_click() {
     }
 
 }
-
+//Функция покупки зданий
 function upgrade(elem) {
 
     var incomInc = parseInt(elem.dataset.valueInc)
-    var lvl = parseInt(elem.dataset.lvl);
-    var basePrice = parseInt(elem.dataset.basePrice);
-    var price = Math.round(basePrice * Math.pow((1.15), lvl));
-    var buy_count = +document.getElementById('buy_switch').value;
+    var lvl = parseInt(elem.dataset.lvl);   //Текущий уровени здания
+    var basePrice = parseInt(elem.dataset.basePrice);   //Базовая стоимость здания
+    var price = Math.round(basePrice * Math.pow((1.15), lvl));  //Стоимость здания в зависимости от уровня
+    var buy_count = +document.getElementById('buy_switch').value;   //Определение количества приобретаемых зданий
+    //Определение цены для X-покупаемых зданий
     var counter = 1;
     for (j = 0; j < buy_count - 1; j++) {
         price += Math.round(basePrice * Math.pow((1.15), lvl + counter));
@@ -58,8 +62,10 @@ function upgrade(elem) {
         document.getElementById('score').value = KMBMaker(+document.getElementById('score').dataset.incom);
         elem.dataset.lvl = lvl + buy_count;
         elem.value = parseInt(elem.dataset.lvl) * incomInc;
+        //Вызов функции смены переключателся для изменения отображения новых цен на здания
         switchBuy(document.getElementById('buy_switch'));
         switchBuy(document.getElementById('buy_switch'));
+        //Функция обновляет доход в секунду после покупки
         auto__inc_check();
 
     }
@@ -71,38 +77,35 @@ function upgrade(elem) {
         });
     }
 }
-
-
-
-
-
-
+//Функция улучшения зданий
 function boost_inc(elem) {
 
-    var inc = (elem.dataset.name).split('');
+    var inc = (elem.dataset.name).split('');    //Получение и преобразования имени улучшения в имя здания
     inc.splice(-1, 1);
     var str = inc.join('');
-    var upgrade = document.getElementById(str);
-    var lvl = parseInt(elem.dataset.lvl);
-    if (+document.getElementById('score').dataset.incom >= parseInt(elem.dataset.price) && lvl <= 8) {
-        if (lvl < 8) {
-            (document.getElementById('score').dataset.incom) -= parseInt(elem.dataset.price);
-            document.getElementById('score').value = KMBMaker(+document.getElementById('score').dataset.incom);
+    var build = document.getElementById(str);     //Нахождение элемента
+    var lvl = parseInt(elem.dataset.lvl);   //Получение текущего уровня улучшения
+    var score = document.getElementById('score');
+    var maxLvL = 9;     //Максимальный уровень улучшения
+    if (+score.dataset.incom >= parseInt(elem.dataset.price) && lvl <= maxLvL - 1) {
+        if (lvl < maxLvL - 1) {
+            (score.dataset.incom) -= parseInt(elem.dataset.price);
+            score.value = KMBMaker(+score.dataset.incom);
             elem.dataset.lvl = lvl + 1;
             elem.dataset.price = parseInt(elem.dataset.price) + parseInt(elem.dataset.price) * (parseInt(elem.dataset.priceInc) - 1) * parseInt(elem.dataset.lvl);
-            upgrade.dataset.incomBoost = parseInt(upgrade.dataset.incomBoost) + 1;
-            elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' + 100%\nУровень: ' + elem.dataset.lvl + '\nСтоимость: ' + KMBMaker(+elem.dataset.price);
-        } else if (lvl == 8) {
-            (document.getElementById('score').dataset.incom) -= parseInt(elem.dataset.price);
-            document.getElementById('score').value = KMBMaker(+document.getElementById('score').dataset.incom);
+            build.dataset.incomBoost = parseInt(build.dataset.incomBoost) + 1;
+            elem.innerText = 'Общий множитель "' + build.dataset.name + '": ' + (parseInt(build.dataset.incomBoost) * 100) + '%\n' + build.dataset.name + ' + 100%\nУровень: ' + elem.dataset.lvl + '\nСтоимость: ' + KMBMaker(+elem.dataset.price);
+        } else if (lvl == maxLvL - 1) {
+            (score.dataset.incom) -= parseInt(elem.dataset.price);
+            score.value = KMBMaker(+score.dataset.incom);
             elem.dataset.lvl = lvl + 1;
             elem.dataset.price = parseInt(elem.dataset.price) + parseInt(elem.dataset.price) * (parseInt(elem.dataset.priceInc) - 1) * parseInt(elem.dataset.lvl);
-            upgrade.dataset.incomBoost = parseInt(upgrade.dataset.incomBoost) + 1;
-            elem.innerText = 'Общий множитель "' + upgrade.dataset.name + '": ' + (parseInt(upgrade.dataset.incomBoost) * 100) + '%\n' + upgrade.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
+            build.dataset.incomBoost = parseInt(build.dataset.incomBoost) + 1;
+            elem.innerText = 'Общий множитель "' + build.dataset.name + '": ' + (parseInt(build.dataset.incomBoost) * 100) + '%\n' + build.dataset.name + ' \nУровень: ' + elem.dataset.lvl + '\nВы купили все улучшения для этого здания ';
         }
 
         auto__inc_check();
-    } else if (+document.getElementById('score').dataset.incom < parseInt(elem.dataset.price) && parseInt(elem.dataset.lvl) < 9) {
+    } else if (+score.dataset.incom < parseInt(elem.dataset.price) && parseInt(elem.dataset.lvl) < maxLvL) {
         note({
             content: "Недостаточно монет",
             type: "error",

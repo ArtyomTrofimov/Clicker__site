@@ -1,3 +1,4 @@
+//Функция добавления дохода от зданий
 function auto() {
     var int = parseInt(document.getElementById('score').dataset.incom);
     var str = document.getElementsByName('build');

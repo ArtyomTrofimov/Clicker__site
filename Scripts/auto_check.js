@@ -1,4 +1,4 @@
-
+//Функция обрабоки дохода в секунду 
 function auto__inc_check() {
     document.getElementById('incom').incomSec = 0;
     var int = parseInt(document.getElementById('incom').incomSec);
