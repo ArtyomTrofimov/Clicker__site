@@ -3,7 +3,7 @@ function Clean() {
     document.getElementById('score').dataset.incom = 0;
     document.getElementById('score').value = 0;
     note({
-        content: "Сброшено текушее количество монет",
+        content: "Сброшено текущее количество монет",
         type: "success",
         time: 3
     });
@@ -42,7 +42,7 @@ function Reset() {
     document.getElementById('score').dataset.incom = 0;
     document.getElementById('score').value = 0;
     note({
-        content: "Сброшено текушее состояние игры до старта",
+        content: "Сброшено текущее состояние игры до старта",
         type: "success",
         time: 3
     });

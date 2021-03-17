@@ -45,6 +45,10 @@
                         <a class="popup-close" href="#"></a>
                         <h3>Settings</h3>
                         <p>Громкость:<input id="jcp-volume" type="range" min="0" max="10" value="10" step="0.1" /></p>
+                        <button class="button" type="button" value="Clean" onclick="Clean()">Очистить</button>
+                        <button class="button" type="button" value="Reset" onclick="Reset()">Сбросить
+                            прогресс</button>
+
                     </div>
                 </div>
             </form>
@@ -102,7 +106,7 @@
                             </button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
-                            <button type="button" class="button" id="upgrade_click" value="1000000" data-price="500"
+                            <button type="button" class="button" id="upgrade_click" value="1" data-price="500"
                                 data-price-inc="100" onclick="upgrade_click()"> Улучшить клик<br>Стоимость: 500
                             </button>
                             <button data-lvl="0" data-price="200" data-price-inc="10" class="button" data-name="farm1"
@@ -133,9 +137,6 @@
                             <button data-lvl="0" data-price="2916000000" data-price-inc="10" class="button"
                                 data-name="magetwr1" onclick="boost_inc(this)">Башня мага
                                 <br> Доход + 100% <br> Стоимость: 2.916 B</button>
-                            <button class="button" type="button" value="Clean" onclick="Clean()">Очистить</button>
-                            <button class="button" type="button" value="Reset" onclick="Reset()">Сбросить
-                                прогресс</button>
                         </div>
                     </div>
                     <script>
