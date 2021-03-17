@@ -11,16 +11,27 @@ function Click() {
     var audio__rnd = Math.round(min - 0.5 + Math.random() * (max - min + 1));
     if (audio__rnd == 1) {
         document.getElementById('audio1').play()
+        var sound = document.getElementById('audio1');
+        sound.volume = 1;
     } else if (audio__rnd == 2) {
         document.getElementById('audio2').play()
+        var sound = document.getElementById('audio2');
+        sound.volume = 1;
     } else if (audio__rnd == 3) {
         document.getElementById('audio3').play()
+        var sound = document.getElementById('audio3');
+        sound.volume = 1;
     } else if (audio__rnd == 4) {
         document.getElementById('audio4').play()
+        var sound = document.getElementById('audio4');
+        sound.volume = 1;
     } else {
         document.getElementById('audio5').play()
+        var sound = document.getElementById('audio5');
+        sound.volume = 1;
     }
 }
+
 //Функция улучшение нажатия
 function upgrade_click() {
     var score = document.getElementById('score');   //Получение элемента подсчёта очков

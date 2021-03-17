@@ -11,7 +11,7 @@ function KMBMaker(elem) {
         } else if (isNaN(num)) {
             break;
         }
-        sqrtNum++;
+        abbvNum++;
 
     }
     return text;
