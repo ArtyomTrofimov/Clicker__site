@@ -263,3 +263,14 @@ particle {
     background-size: 100%;
     background-repeat: no-repeat;
 }
+
+@media (max-width: 538px) {
+    .score_block {
+        width: 200px;
+        background-position: 160px;
+    }
+
+    .incom-block {
+        width: 150px;
+    }
+}
