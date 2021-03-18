@@ -13,7 +13,7 @@ function createParticle(x, y) {
     document.body.appendChild(particle);    //Добавляет в body элемент частиц
     let width = 30;
     let height = width;
-    let destinationX = incom.x;     //Переменная определяющая конечную позицию частиц по X
+    let destinationX = +incom.right - +incom.right * 0.065;     //Переменная определяющая конечную позицию частиц по X
     let destinationY = incom.y;     //Переменная определяющая конечную позицию частиц по Y
     let rotation = Math.random() * 520;      //Переменная определяющая поворот частиц 
     let duration = 3000;    //Длительность анимации
@@ -29,7 +29,7 @@ function createParticle(x, y) {
             opacity: 1
         },
         {   //Конечная позиция и прозрачность
-            transform: `translate(-50%, -50%) translate(${destinationX + 217}px, ${destinationY + 25}px) rotate(${rotation}deg)`,
+            transform: `translate(-50%, -50%) translate(${destinationX}px, ${destinationY + 25}px) rotate(${rotation}deg)`,
             opacity: 0
         }
     ], {
