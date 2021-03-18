@@ -37,6 +37,11 @@ function click_audio() {
     }
 }
 
+function fun1() {
+    var volume = document.getElementById('jcp-volume').value;
+    document.getElementById('volume').innerText = 'Громкость: ' + volume * 10 + '%';
+}
+
 //Функция улучшение нажатия
 function upgrade_click() {
     var score = document.getElementById('score');   //Получение элемента подсчёта очков

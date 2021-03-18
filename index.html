@@ -44,7 +44,9 @@
                     <div class="popup">
                         <a class="popup-close" href="#"></a>
                         <h3>Settings</h3>
-                        <p>Громкость:<input id="jcp-volume" type="range" min="0" max="10" value="10" step="0.1" /></p>
+                        <h5><span id="volume">Громкость: 100% </span><input id="jcp-volume" type="range" min="0"
+                                max="10" value="10" step="0.1" oninput="fun1()" />
+                        </h5>
                         <button class="button" type="button" value="Clean" onclick="Clean()">Очистить</button>
                         <button class="button" type="button" value="Reset" onclick="Reset()">Сбросить
                             прогресс</button>
@@ -71,38 +73,39 @@
 
                             <button type="button" name="build" data-name="Ферма" value="0" data-value-inc="2" id='farm'
                                 data-base-price="10" data-incom-boost="1" data-lvl="0" class="button inc__chech"
-                                onclick='upgrade(this)'>Купить ферму<br>Стоимость: 10 </button>
+                                onclick='upgrade(this)'>Ферма<br>0<br>Стоимость 1 X : 10 </button>
                             <button type="button" name="build" data-name="Кузница" value="0" data-value-inc="6"
                                 id='forge' data-base-price="125" data-incom-boost="1" data-lvl="0"
                                 class="button inc__chech" onclick='upgrade(this)'>
-                                Купить кузницу <br>Стоимость: 125 </button>
+                                Кузница <br>0<br>Стоимость 1 X : 125 </button>
                             <button type="button" name="build" data-name="Таверна" value="0" data-value-inc="22"
                                 id='inn' data-base-price="600" data-incom-boost="1" data-lvl="0"
                                 class="button inc__chech" onclick='upgrade(this)'>
-                                Купить таверну <br>Стоимость: 600 </button>
+                                Таверна <br>0<br>Стоимость 1 X : 600 </button>
                             <button type="button" name="build" data-name="Тренировочная площадка" value="0"
                                 data-value-inc="65" id='barracks' data-base-price="1800" data-incom-boost="1"
                                 data-lvl="0" class="button inc__chech" onclick='upgrade(this)'>
-                                Купить тренировочные площадки <br>Стоимость: 1.8 K</button>
+                                Тренировочные площадки <br>0<br>Стоимость 1 X : 1.8 K</button>
                             <button type="button" name="build" data-name="Шахта" value="0" data-value-inc="200"
                                 id='mine' data-base-price="5600" data-incom-boost="1" data-lvl="0"
                                 class="button inc__chech" onclick='upgrade(this)'>
-                                Купить шахту <br>Стоимость: 5.6 K</button>
+                                Шахта <br>0<br>Стоимость 1 X : 5.6 K</button>
                             <button type="button" name="build" data-name="Крепость" value="0" data-value-inc="650"
                                 id='castle' data-base-price="38000" data-incom-boost="1" data-lvl="0"
-                                class="button inc__chech" onclick='upgrade(this)'>Купить Крепость<br>Стоимость: 38
+                                class="button inc__chech" onclick='upgrade(this)'>Крепость<br>0<br>Стоимость 1 X : 38
                                 K</button>
                             <button type="button" name="build" data-name="Храм" value="0" data-value-inc="2000"
                                 id='temple' data-base-price="442000" data-incom-boost="1" data-lvl="0"
-                                class="button inc__chech" onclick='upgrade(this)'>Купить Храм<br>Стоимость: 442
+                                class="button inc__chech" onclick='upgrade(this)'>Храм<br>0<br>Стоимость 1 X : 442
                                 K</button>
                             <button type="button" name="build" data-name="Арена" value="0" data-value-inc="8500"
                                 id='arena' data-base-price="7300000" data-incom-boost="1" data-lvl="0"
-                                class="button inc__chech" onclick='upgrade(this)'>Купить Арена<br>Стоимость: 7.30
+                                class="button inc__chech" onclick='upgrade(this)'>Арена<br>0<br>Стоимость 1 X : 7.30
                                 M</button>
                             <button type="button" name="build" data-name="Башня мага" value="0" data-value-inc="100000"
                                 id='magetwr' data-base-price="145000000" data-incom-boost="1" data-lvl="0"
-                                class="button inc__chech" onclick='upgrade(this)'>Купить Башня мага<br>Стоимость: 145 M
+                                class="button inc__chech" onclick='upgrade(this)'>Башня мага<br>0<br>Стоимость 1 X :
+                                145 M
                             </button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
@@ -161,10 +164,6 @@
                                 root.querySelector('div[id=' + id + ']').style.display = 'block';
                             }
                         };
-                        $("#jcp-volume").mousemove(function () {
-
-                            $('audio1').volume = parseFloat(this.value / 10);
-                        }); (window.jQuery);
                     </script>
                 </div>
             </div>
