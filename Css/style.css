@@ -76,6 +76,15 @@ h3 {
     margin-bottom: 20px;
 }
 
+.farm_ico{
+    width: 150px;
+    height: 90px;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    display: none;
+}
+
 .box{
     position: relative;
     grid-area: sc;
@@ -103,6 +112,8 @@ h3 {
 .box_button {
     width: 100%;
     height: 100%;
+    display: flex;
+    position: relative;
 }
 
 .button{
@@ -306,6 +317,8 @@ particle {
     margin-left: -60px;
     opacity: 0;
     transition: opacity 0.3s;
+    pointer-events: none;
+    
 }
 
 .spell_btn .tooltiptext::after {
@@ -317,6 +330,7 @@ particle {
     border-width: 5px;
     border-style: solid;
     border-color: rgb(0, 0, 0) transparent transparent transparent;
+    pointer-events: none;
 }
   
 .spell_btn:hover .tooltiptext {

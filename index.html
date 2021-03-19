@@ -42,7 +42,7 @@
                 <input class="score_block" data-incom="0" value="0" id='score' name="score_block" readonly>
                 <input class="incom-block" data-incomSec="0" value="0/sec" id='incom' name="incom-block" readonly>
                 <div class="progress" id="mana_bar-bg">
-                    <div class="progress_line" id="mana_bar" data-max-mana="1000" data-mana="0" data-mana-regen="100"
+                    <div class="progress_line" id="mana_bar" data-max-mana="1000" data-mana="0" data-mana-regen="0.1"
                         data-boost="1"><span id="manapool">MANA:0/1000</span>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <form class="box_button">
                     <input type="button" class="button_circle" data-type="shadow" onclick="Click(),pop(event)"
                         data-type="logo">
-                    <img src="css/img/farm.png" alt="">
+                    <img id="farm_ico" class="farm_ico" src="css/img/farm.png" alt="">
                 </form>
             </section>
             <div class="upgrades">

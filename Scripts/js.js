@@ -78,6 +78,9 @@ function upgrade(elem) {
         price += Math.round(basePrice * Math.pow((1.15), lvl + counter));
         counter++;
     }
+    if (elem.dataset.lvl < 1) {
+        document.getElementById('farm_ico').style.display = 'block';
+    }
     if (eval((document.getElementById('score').dataset.incom)) >= price) {
         (document.getElementById('score').dataset.incom) -= price;
         document.getElementById('score').value = KMBMaker(+document.getElementById('score').dataset.incom);
