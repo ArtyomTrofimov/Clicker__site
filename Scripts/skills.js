@@ -1,6 +1,6 @@
 function CoinCollect() {
     var elem = document.getElementById('mana_bar'),
-        background = document.getElementById('manapool'),
+        background = document.getElementById('manaPool'),
         mana = +elem.dataset.mana,
         maxMana = elem.dataset.maxMana;
     if (mana >= 200) {
@@ -21,7 +21,7 @@ function CoinCollect() {
 
 function BoostEconomy() {
     var elem = document.getElementById('mana_bar'),
-        background = document.getElementById('manapool'),
+        background = document.getElementById('manaPool'),
         mana = +elem.dataset.mana,
         maxMana = elem.dataset.maxMana;
     if (mana >= 400) {
@@ -42,7 +42,7 @@ function BoostEconomy() {
 
 function ClickBoost() {
     var elem = document.getElementById('mana_bar'),
-        background = document.getElementById('manapool'),
+        background = document.getElementById('manaPool'),
         click = document.getElementById('upgrade_click').value,
         mana = +elem.dataset.mana,
         maxMana = elem.dataset.maxMana;

@@ -42,15 +42,17 @@
                 <input class="score_block" data-incom="0" value="0" id='score' name="score_block" readonly>
                 <input class="incom-block" data-incomSec="0" value="0/sec" id='incom' name="incom-block" readonly>
                 <div class="progress" id="mana_bar-bg">
-                    <div class="progress_line" id="mana_bar" data-max-mana="1000" data-mana="0" data-mana-regen="0.1"
-                        data-boost="1"><span id="manapool">MANA:0/1000</span>
+                    <div class="progress_line" id="mana_bar" data-max-mana="1000" data-mana="999" data-mana-regen="0.1"
+                        data-boost="1"><span id="manaPool">MANA:0/1000</span><span id="manaRegenSec">1 / S</span>
                     </div>
+
                 </div>
                 <div class="spells" id="spells">
                     <button class="spell_btn " type="button" id="coinCollect" onclick="CoinCollect()">200<span
                             class="tooltiptext">
                             <h5>Сбор монет</h5>
                             <p>Мгновенно получите монеты за 30 секунд от всех зданий</p>
+                            <span id="estimateValue"></span>
                         </span></button>
                     <button class="spell_btn" type="button" id="Boost_Economy" onclick="BoostEconomy()">400
                         <span class="tooltiptext">

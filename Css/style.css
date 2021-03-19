@@ -285,14 +285,22 @@ particle {
     position: relative;
 }
 
-#manapool{
-    margin-left: 10px;
+#manaPool{
+    padding-left: 10px;
     position: absolute;
+}
+
+#manaRegenSec{
+    position: absolute;
+    color: #fff;
+    right: 10px;
 }
 
 
 .progress_line{
     background: rgb(54, 66, 223);
+    display: flex;
+    justify-content: space-between;
 }
 
 .spell_btn{
