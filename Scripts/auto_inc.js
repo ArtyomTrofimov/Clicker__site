@@ -1,9 +1,10 @@
 //Функция добавления дохода от зданий
 function auto() {
-    var int = parseInt(document.getElementById('score').dataset.incom);
-    var str = document.getElementsByName('build');
+    var int = +(document.getElementById('score').dataset.incom),
+        str = document.getElementsByName('build'),
+        skillBoost = +document.getElementById('mana_bar').dataset.boost;
     for (i = 0; i < str.length; i++) {
-        int += parseInt(str[i].value) * parseInt(str[i].dataset.incomBoost);
+        int += parseInt(str[i].value) * parseInt(str[i].dataset.incomBoost) * skillBoost;
 
     }
     document.getElementById('score').dataset.incom = int;
