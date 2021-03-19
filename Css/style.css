@@ -386,5 +386,14 @@ particle {
     .progress{
         width: 220px !important;
     }
+
+    .farm_ico{
+        width: 90px;
+        height: 60px;
+        position: absolute;
+        bottom: 110px;
+        left: 20px;
+        display: none;
+    }
 }
 
