@@ -13,11 +13,16 @@ function createParticle(x, y) {
     document.body.appendChild(particle);    //Добавляет в body элемент частиц
     let width = 30;
     let height = width;
-    let destinationX = +incom.right - +incom.right * 0.065;     //Переменная определяющая конечную позицию частиц по X
-    let destinationY = incom.y;     //Переменная определяющая конечную позицию частиц по Y
     let rotation = Math.random() * 520;      //Переменная определяющая поворот частиц 
-    let duration = 3000;    //Длительность анимации
+    let duration = 4000;    //Длительность анимации
     particle.style.backgroundImage = 'url(Css/img/favicon.png)'; // Ссылка на картинку
+    let sideRnd = Math.floor(1 + Math.random() * (2 + 1 - 1));
+    let sidePixelX = 0;
+    if (sideRnd == 1) {
+        sidePixelX = 4;
+    } else {
+        sidePixelX = -4;
+    }
 
 
     particle.style.width = `${width}px`;    //Добавляет в стили элемента частиц ширину
@@ -26,17 +31,47 @@ function createParticle(x, y) {
     const animation = particle.animate([
         {   //Начальная позиция и прозрачность
             transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(0deg)`,
-            opacity: 1
+            opacity: 1,
+
         },
-        {   //Конечная позиция и прозрачность
-            transform: `translate(-50%, -50%) translate(${destinationX}px, ${destinationY + 25}px) rotate(${rotation}deg)`,
-            opacity: 0
+        {
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX}px, ${y - 20}px) rotate(${rotation}deg)`,
+            opacity: 1,
+        },
+        {
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 2}px, ${y - 30}px) rotate(${rotation}deg)`,
+            opacity: 1,
+        },
+        {
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 3}px, ${y - 40}px) rotate(${rotation}deg)`,
+            opacity: 1,
+        },
+        {
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 4}px, ${y - 40}px) rotate(${rotation}deg)`,
+            opacity: 1,
+        },
+        {
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 5}px, ${y - 30}px) rotate(${rotation}deg)`,
+            opacity: 0.8,
+        },
+        {
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 6}px, ${y}px) rotate(${rotation}deg)`,
+            opacity: 0.6,
+        },
+        {
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 7}px, ${y + 30}px) rotate(${rotation}deg)`,
+            opacity: 0.4,
+        },
+        {
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 8}px, ${y + 60}px) rotate(${rotation}deg)`,
+            opacity: 0,
         }
     ], {
-        duration: Math.random() * 1000 + 5000, // Продолжительность всех эффектов
-        easing: 'cubic-bezier(.34,1.56,.56,1.81)', //Кривая для скорости анимации
-        duration: duration  //Длительность анимации
-    });
+        duration: duration,
+        easing: 'cubic-bezier(.16,.68,.19,1.03)'
+    }
+    );
+
     animation.onfinish = removeParticle;    //Удаление частиц по завершению анимации
 }
 function removeParticle(e) {

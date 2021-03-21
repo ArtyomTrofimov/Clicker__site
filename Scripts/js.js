@@ -12,7 +12,7 @@ function click_audio() {
     //Определение звуковых эффектов для нажатия
     var min = 1;
     var max = 5;
-    var audio__rnd = Math.round(min - 0.5 + Math.random() * (max - min + 1));
+    var audio__rnd = Math.floor(min + Math.random() * (max + 1 - min));
     var slideVolume = +document.getElementById('jcp-volume').value / 10;
     if (audio__rnd == 1) {
         document.getElementById('audio1').play()
