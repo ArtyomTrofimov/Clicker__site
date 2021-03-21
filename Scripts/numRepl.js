@@ -39,7 +39,6 @@ function KMBMaker(elem) {
             abbvNum++;
         }
         return text;
-
     }
 }
 
