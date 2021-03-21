@@ -16,14 +16,19 @@ function createParticle(x, y) {
     let rotation = Math.random() * 520;      //Переменная определяющая поворот частиц 
     let duration = 4000;    //Длительность анимации
     particle.style.backgroundImage = 'url(Css/img/favicon.png)'; // Ссылка на картинку
-    let sideRnd = Math.floor(1 + Math.random() * (2 + 1 - 1));
+    let sideRndX = Math.floor(1 + Math.random() * (2 + 1 - 1));
     let sidePixelX = 0;
-    if (sideRnd == 1) {
-        sidePixelX = 4;
+    if (sideRndX == 1) {
+        sidePixelX = Math.floor(4 + Math.random() * (12 + 4 - 4));
     } else {
-        sidePixelX = -4;
+        sidePixelX = -1 * Math.floor(4 + Math.random() * (20 + 4 - 4));
     }
-
+    let sideRndY = Math.floor(1 + Math.random() * (2 + 1 - 1));
+    if (sideRndY == 1) {
+        sidePixelY = 20;
+    } else {
+        sidePixelY = -20;
+    }
 
     particle.style.width = `${width}px`;    //Добавляет в стили элемента частиц ширину
     particle.style.height = `${height}px`;  //Добавляет в стили элемента частиц высоту
@@ -63,7 +68,7 @@ function createParticle(x, y) {
             opacity: 0.4,
         },
         {
-            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 8}px, ${y + 60}px) rotate(${rotation}deg)`,
+            transform: `translate(-50%, -50%) translate(${x + sidePixelX * 8}px, ${y + 60 - sidePixelY}px) rotate(${rotation}deg)`,
             opacity: 0,
         }
     ], {
