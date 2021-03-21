@@ -69,12 +69,21 @@
                 <div class="popup-fade">
                     <div class="popup">
                         <a class="popup-close" href="#"></a>
-                        <h3>Settings</h3>
-                        <h5><span id="volume">Громкость: 100% </span><input id="jcp-volume" type="range" min="0"
-                                max="10" value="10" step="0.1" oninput="fun1()" />
-                        </h5>
-                        <button class="button" type="button" value="Clean" onclick="Clean()">Очистить</button>
-                        <button class="button" type="button" value="Reset" onclick="Reset()">Сбросить
+                        <h3>Настройки</h3>
+                        <h6 style="margin-bottom:0">Изменить отображение чисел:</h6>
+                        <input type="radio" name="numAbbv" id="shortNum" checked onclick="numInit()"><label
+                            for="shortNum">Короткие
+                            числа</label>
+
+                        <input type="radio" name="numAbbv" id="scientific" onclick="numInit()"><label
+                            for="scientific">Научные
+                            числа</label>
+                        <h6 id="volume_box"><span id="volume">Громкость: 100% </span><input id="jcp-volume" type="range"
+                                min="0" max="10" value="10" step="0.1" oninput="fun1()" />
+                        </h6>
+                        <button class="button btn_settings" type="button" value="Clean"
+                            onclick="Clean()">Очистить</button>
+                        <button class="button btn_settings" type="button" value="Reset" onclick="Reset()">Сбросить
                             прогресс</button>
 
                     </div>
@@ -135,36 +144,38 @@
                             </button>
                         </div>
                         <div class="tabs__text" id="tabs-2">
-                            <button type="button" class="button" id="upgrade_click" value="10" data-price="500"
-                                data-price-inc="100" onclick="upgrade_click()"> Улучшить клик<br>Стоимость: 500
+                            <button type="button" class="button" id="upgrade_click" value="100000000" data-price="500"
+                                data-price-inc="100" onclick="upgrade_click()"> Улучшить
+                                клик<br>Стоимость: 500
                             </button>
-                            <button data-lvl="0" data-price="200" data-price-inc="10" class="button" data-name="farm1"
-                                onclick="boost_inc(this)">Ферма
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="200" data-price-inc="10"
+                                class="button" data-name="farm1" onclick="boost_inc(this)">Ферма
                                 <br> Доход + 100% <br> Стоимость: 200 </button>
-                            <button data-lvl="0" data-price="2500" data-price-inc="10" class="button" data-name="forge1"
-                                onclick="boost_inc(this)">Кузница <br> Доход
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="2500" data-price-inc="10"
+                                class="button" data-name="forge1" onclick="boost_inc(this)">Кузница <br> Доход
                                 + 100% <br> Стоимость: 2.5 K </button>
-                            <button data-lvl="0" data-price="12000" data-price-inc="10" class="button" data-name="inn1"
-                                onclick="boost_inc(this)">Таверна <br> Доход +
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="12000" data-price-inc="10"
+                                class="button" data-name="inn1" onclick="boost_inc(this)">Таверна <br> Доход +
                                 100% <br> Стоимость: 12 K</button>
-                            <button data-lvl="0" data-price="36000" data-price-inc="10" class="button"
-                                data-name="barracks1" onclick="boost_inc(this)">Тренировочная
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="36000" data-price-inc="10"
+                                class="button" data-name="barracks1" onclick="boost_inc(this)">Тренировочная
                                 площадка <br> Доход + 100% <br> Стоимость: 36 K
                             </button>
-                            <button data-lvl="0" data-price="112000" data-price-inc="10" class="button"
-                                data-name="mine1" onclick="boost_inc(this)">Шахта
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="112000" data-price-inc="10"
+                                class="button" data-name="mine1" onclick="boost_inc(this)">Шахта
                                 <br> Доход + 100% <br> Стоимость: 112 K</button>
-                            <button data-lvl="0" data-price="764000" data-price-inc="10" class="button"
-                                data-name="castle1" onclick="boost_inc(this)">Крепость
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="764000" data-price-inc="10"
+                                class="button" data-name="castle1" onclick="boost_inc(this)">Крепость
                                 <br> Доход + 100% <br> Стоимость: 764 K</button>
-                            <button data-lvl="0" data-price="8890000" data-price-inc="10" class="button"
-                                data-name="temple1" onclick="boost_inc(this)">Храм
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="8890000" data-price-inc="10"
+                                class="button" data-name="temple1" onclick="boost_inc(this)">Храм
                                 <br> Доход + 100% <br> Стоимость: 8.89 M</button>
-                            <button data-lvl="0" data-price="146800000" data-price-inc="10" class="button"
-                                data-name="arena1" onclick="boost_inc(this)">Арена
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="146800000"
+                                data-price-inc="10" class="button" data-name="arena1" onclick="boost_inc(this)">Арена
                                 <br> Доход + 100% <br> Стоимость: 146.8 M</button>
-                            <button data-lvl="0" data-price="2916000000" data-price-inc="10" class="button"
-                                data-name="magetwr1" onclick="boost_inc(this)">Башня мага
+                            <button type="button" name="Upgrades" data-lvl="0" data-price="2916000000"
+                                data-price-inc="10" class="button" data-name="magetwr1" onclick="boost_inc(this)">Башня
+                                мага
                                 <br> Доход + 100% <br> Стоимость: 2.916 B</button>
                         </div>
                     </div>
