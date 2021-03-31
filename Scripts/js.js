@@ -5,6 +5,7 @@ function Click() {
     score.dataset.incom = parseInt(score.dataset.incom) + +document.getElementById("upgrade_click").value;
     var incomeClick = +score.dataset.incom;
     score.value = KMBMaker(incomeClick);    //Изменение отображений чисел через функцию
+    clickAchivmentScore();  //Функция проверки достижения на клики
     click_audio();
 }
 
